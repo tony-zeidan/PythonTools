@@ -41,7 +41,6 @@ class DataSet(MutableMapping):
             self.frame.rename({value: key}, axis=1, inplace=True, errors='raise')
             self._aliases[key] = value
         except (TypeError, AttributeError, KeyError):
-            print(key)
             if key in ['_aliases', '_store']:
                 self.__dict__[key] = value
             else:
