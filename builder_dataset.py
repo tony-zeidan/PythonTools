@@ -30,7 +30,7 @@ class DataSet(MutableMapping):
             return self.__dict__[key]
         except KeyError:
             try:
-                return self.__dict__['store'][key]
+                return self.__dict__['_store'][key]
             except KeyError:
                 return self.__dict__['frame'][key]
 
@@ -54,3 +54,6 @@ class DataSet(MutableMapping):
 
     def __iter__(self):
         return iter(self._store)
+
+    def __str__(self):
+        return str(self._store)
